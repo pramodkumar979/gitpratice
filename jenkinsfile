@@ -1,0 +1,23 @@
+node
+
+{
+stage (chechout code)
+{
+  git branch:'master',git credentialsId: '4022a81e-dfca-4c66-a0dd-97a8af8be3b3', url: 'https://github.com/pramodkumar979/maven-web-application.git'
+  
+  }
+  
+  stage('build')
+  
+  {
+  sh " $ {maven home} /bin/mvn clean package "
+  
+  }
+  
+  stage ('excute sonar qube report')
+  
+  {
+  sh " ${maven home } /bin/mvn sonar:sonar"
+  
+  }
+  
